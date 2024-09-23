@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { CustomButton, CustomInput } from "../../ui"
 import { AuthLayout } from "../layouts/AuthLayout"
 
@@ -34,7 +35,7 @@ export const CreateAccountPage = () => {
                 type="button"
             />
 
-            <p className="font-light text-lg text-gray-500 text-center"> ¿Tienes una Cuenta? <a href="" className="text-indigo-800">Iniciar Sesión</a> </p>
+            <p className="font-light text-lg text-gray-500 text-center"> ¿Tienes una Cuenta? <Link to='/auth/login' className="text-indigo-800">Iniciar Sesión</Link> </p>
 
         </form>
 

@@ -3,7 +3,7 @@ export const AuthLayout = ({ children, title, description }) => {
   return (
     <section className='h-svh w-full flex items-center justify-center bg-slate-200'>
 
-        <div className='p-16 bg-white max-w-xl shadow-lg rounded relative overflow-hidden'>
+        <div className='p-16 bg-white max-w-xl shadow-lg rounded relative overflow-hidden animate__animated animate__fadeInDown'>
 
             <div className='flex items-center justify-stretch absolute top-0 left-0 w-full'>
                 <span className='block h-2 flex-1 bg-indigo-800'></span>
