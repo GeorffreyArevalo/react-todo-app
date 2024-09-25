@@ -3,15 +3,20 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import { CustomButton, CustomInput } from '../../ui'
+import { useAuth } from '../../hooks/useAuth'
+import { CustomButton, CustomInput, LoadingIcon } from '../../ui'
 import { AuthLayout } from '../layouts/AuthLayout'
 
 export const LoginPage = () => {
 
+    const { state, dispatchAuthLogin } = useAuth();
+
     const { register, handleSubmit, formState: { errors, isValid } } = useForm();
 
     const onCustomSubmit = ( data ) => {
-        console.log(data);
+        if(isValid){
+            dispatchAuthLogin( data );
+        }
     }
 
   return (
@@ -62,6 +67,9 @@ export const LoginPage = () => {
                 type='submit'
                 bgColor='bg-indigo-800'
                 text='Iniciar Sesión'
+                disabled={ state === 'checking' }
+                showIcon={ state === 'checking' }
+                icon={ <LoadingIcon /> }
             />
 
             <p className="font-light text-lg text-gray-500 text-center">¿No Tienes una Cuenta? <Link to='/auth/create-account' className="text-indigo-800">Crear Una</Link> </p>
